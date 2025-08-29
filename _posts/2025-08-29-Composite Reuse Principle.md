@@ -435,12 +435,12 @@ So in most cases, composition is better than class inheritance if you want to re
 
 A better use of inheritance is extending the functionality of existing classes, like inheriting from UIViewController and overriding its lifecycle methods.
 
-There is more to be said on this topic. If you’re interested, I’ll put some links below.
+There is more to be said on this topic. If you’re interested, I’ll put some recommendations below.
 Fair winds and goodbye!
 
-—-
+---
 
-Further learning and sources:
-- I can't recommend enough the iOS Lead Essentials program at https://www.essentialdeveloper.com.
-- Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides: Design Patterns - Elements of Reusable Object-Oriented Software, p. 18-20
-- https://en.wikipedia.org/wiki/Composition_over_inheritance
+### Further Learning and Sources
+- I can't recommend enough the iOS Lead Essentials program at [essentialdeveloper.com](https://www.essentialdeveloper.com).
+- Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides. [Design Patterns - Elements of Reusable Object-Oriented Software](https://www.goodreads.com/book/show/85009.Design_Patterns). Addison-Wesley. P. 18-20: "Inheritance versus Composition".
+- Wikipedia article: [Composition over Inheritance](https://en.wikipedia.org/wiki/Composition_over_inheritance)
