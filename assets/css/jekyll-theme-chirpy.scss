@@ -9,3 +9,15 @@
 ';
 
 /* append your custom style below */
+
+/* Custom Pirate Theme Styles */
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
+
+// body {
+//   background-color: #1B263B; /* Navy blue */
+//   color: #D4A017; /* Gold */
+// }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Pirata One', cursive;
+}
