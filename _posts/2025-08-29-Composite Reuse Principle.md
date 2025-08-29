@@ -401,14 +401,20 @@ class LoudCannon: Cannon {
 
 Let’s create an armed merchant ship with an extra loud cannon to scare away the pirates.
 ```swift
-let loudCannon = LoudCannon()
-let loudMerchant = ArmedMerchantShip(sailingEquipment: SailingEquipment(), cannon: loudCannon, hold: Hold())
+let loudMerchant = ArmedMerchantShip(
+    sailingEquipment: SailingEquipment(), 
+    cannon: LoudCannon(), 
+    hold: Hold()
+)
 ```
 
 And here is an extra dangerous pirate hunter with a long range cannon.
 ```swift
-let longRangeCannon = LongRangeCannon()
-let dangerousHunter = PirateHunterShip(sailingEquipment: SailingEquipment(), cannon: longRangeCannon, navalOfficers: NavalOfficers())
+let dangerousHunter = PirateHunterShip(
+    sailingEquipment: SailingEquipment(), 
+    cannon: LongRangeCannon(), 
+    navalOfficers: NavalOfficers()
+)
 ```
 
 And so we can compose our objects whichever way we like and create components with different behavior even at runtime.
