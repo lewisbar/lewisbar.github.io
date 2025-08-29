@@ -9,6 +9,8 @@ Ahoy and welcome to Swift for Pirates!
 
 Today, we want to talk about the **Composite Reuse Principle** which states that when it comes to reusing code to avoid duplication it’s in most cases best to prefer **composition over inheritance**.
 
+#### The Problem: Duplicated Code
+
 Let’s say we have three types of ships.
 ```swift
 class PirateShip {
@@ -127,6 +129,8 @@ This works great so far. We’ve eliminated all duplication.
 
 But now, with all those pirates haunting the seas these days, more and more merchants choose to arm their ships so they can defend themselves.
 
+#### A Limitation
+
 These are the methods we need for an armed merchant ship:
 ```swift
 class ArmedMerchantShip {
@@ -166,6 +170,8 @@ class ArmedMerchantShip: ArmedShip {
 To avoid duplicating `load(:)` and `unload(:)`, we would have to inherit from `MerchantShip`. But in Swift, you can only inherit from a single class.
 
 So that’s one limitation of inheritance. It’s not that flexible.
+
+#### Strong Coupling
 
 Inheritance is described as an **is-a** relationship. A `MerchantShip` **is a** `Ship`. A `PirateShip` **is an** `ArmedShip`. It’s all or nothing. If you decide to inherit from a class, not only do you inherit all properties and behavior of that class, but you **become** a kind of that class. That’s the strongest form of coupling.
 
@@ -214,6 +220,8 @@ class PirateHunterShip {
     }
 }
 ```
+
+#### Small Components
 
 In order to work with composition, we need to think small. For example, who or what is it that can shoot, is it really the whole ship?
 No, it’s only the cannon. So let’s define a tiny class `Cannon` that only does this one thing.
@@ -266,6 +274,8 @@ class NavalOfficers {
 ```
 
 And now we have all these tiny components and can compose them to our liking.
+
+#### Solving the Problem
 
 A `PirateShip` should be able to sail, shoot, and plunder. So it needs `SailingEquipment`, a `Cannon`, and a `BoardingCrew`. Then we can use the cannon to shoot, the boarding crew to plunder, and so on.
 ```swift
@@ -323,7 +333,11 @@ class PirateHunterShip {
 }
 ```
 
-You get the idea. But now let’s bring in our problem case again, the `ArmedMerchantShip`. Remember, this one needs to be able to sail, shoot, load, and unload.
+You get the idea. 
+
+#### Surpassing the Limitation
+
+But now let’s bring in our problem case again, the `ArmedMerchantShip`. Remember, this one needs to be able to sail, shoot, load, and unload.
 ```swift
 class ArmedMerchantShip {
     func sail(_ direction: String) {
@@ -361,6 +375,8 @@ class ArmedMerchantShip {
 
 So composition is much more flexible than inheritance.
 
+#### Going Even Further: Protocols
+
 And here comes the next step. You can make this even more composable by using protocols instead of concrete types. For example, let’s make `Cannon` a protocol instead of a concrete class.
 ```swift
 protocol Cannon {
@@ -395,9 +411,19 @@ let longRangeCannon = LongRangeCannon()
 let dangerousHunter = PirateHunterShip(sailingEquipment: SailingEquipment(), cannon: longRangeCannon, navalOfficers: NavalOfficers())
 ```
 
-And so we can compose our objects however we like and create components with different behavior even at runtime.
+And so we can compose our objects whichever way we like and create components with different behavior even at runtime.
 
-To sum up some of the advantages of composition: Using composition, our code becomes more flexible and easier to change. These tiny components are easier to develop and reason about than an inheritance hierarchy of classes. They are also easier to test, easier to reuse, and easier to maintain.
+#### Advantages of Composition
+
+To sum up some of the advantages of composition:
+
+Using composition, our code becomes more flexible and easier to change.
+
+These tiny components are easier to develop and reason about than an inheritance hierarchy of classes.
+
+They are also easier to test, easier to reuse, and easier to maintain.
+
+#### Wrapping It Up
 
 So in most cases, composition is better than class inheritance if you want to reuse or share code.
 
