@@ -423,11 +423,11 @@ And so we can compose our objects whichever way we like and create components wi
 
 To sum up some of the advantages of composition:
 
-Using composition, our code becomes more flexible and easier to change.
+- Using composition, our code becomes more flexible and easier to change.
 
-These tiny components are easier to develop and reason about than an inheritance hierarchy of classes.
+- These tiny components are easier to develop and reason about than an inheritance hierarchy of classes.
 
-They are also easier to test, easier to reuse, and easier to maintain.
+- They are also easier to test, easier to reuse, and easier to maintain.
 
 #### Wrapping It Up
 
@@ -436,6 +436,7 @@ So in most cases, composition is better than class inheritance if you want to re
 A better use of inheritance is extending the functionality of existing classes, like inheriting from UIViewController and overriding its lifecycle methods.
 
 There is more to be said on this topic. If you’re interested, I’ll put some recommendations below.
+
 Fair winds and goodbye!
 
 ---
