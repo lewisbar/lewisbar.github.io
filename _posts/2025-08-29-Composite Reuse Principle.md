@@ -12,45 +12,45 @@ Today, we want to talk about the **Composite Reuse Principle** which states that
 Let’s say we have three types of ships.
 ```swift
 class PirateShip {
-	func sail(_ direction: String) {
-		print("Sailing \(direction)")
-	}
+    func sail(_ direction: String) {
+        print("Sailing \(direction)")
+    }
 
-	func shootCannon(_ direction: String) {
-		print("Shooting cannon to the \(direction). Boom!")
-	}
+    func shootCannon(_ direction: String) {
+        print("Shooting cannon to the \(direction). Boom!")
+    }
 
-	func plunder() {
-		print("Plundering")
-	}
+    func plunder() {
+        print("Plundering")
+    }
 }
 
 class MerchantShip {
-	func sail(_ direction: String) {
-		print("Sailing \(direction)")
-	}
+    func sail(_ direction: String) {
+        print("Sailing \(direction)")
+    }
 
-	func load(_ goods: String) {
-		print("Loading \(goods)")
-	}
+    func load(_ goods: String) {
+        print("Loading \(goods)")
+    }
 
-	func unload(_ goods: String) {
-		print("Unloading \(goods)")
-	}
+    func unload(_ goods: String) {
+        print("Unloading \(goods)")
+    }
 }
 
 class PirateHunterShip {
-	func sail(_ direction: String) {
-		print("Sailing \(direction)")
-	}
+    func sail(_ direction: String) {
+        print("Sailing \(direction)")
+    }
 
-	func shootCannon(_ direction: String) {
-		print("Shooting cannon to the \(direction). Boom!")
-	}
+    func shootCannon(_ direction: String) {
+        print("Shooting cannon to the \(direction). Boom!")
+    }
 
-	func arrestPirates() {
-		print("Game over!")
-	}
+    func arrestPirates() {
+        print("Game over!")
+    }
 }
 ```
 
@@ -60,66 +60,66 @@ As you see, we have some duplication here. All three ships have the same `sail` 
 So let’s define a superclass `Ship`.
 ```swift
 class Ship {
-	func sail(_ direction: String) {
-		print("Sailing \(direction)")
-	}
+    func sail(_ direction: String) {
+        print("Sailing \(direction)")
+    }
 }
 ```
 
 Now all ships can inherit this method by subclassing Ship. So they don’t have to duplicate the `sail` method anymore.
 ```swift
 class MerchantShip: Ship {
-	func load(_ goods: String) {
-		print("Loading \(goods)")
-	}
+    func load(_ goods: String) {
+        print("Loading \(goods)")
+    }
 
-	func unload(_ goods: String) {
-		print("Unloading \(goods)"
-	}
+    func unload(_ goods: String) {
+        print("Unloading \(goods)"
+    }
 }
 
 class PirateShip: Ship {
-	func shootCannon(_ direction: String) {
-		print("Shooting cannon to the (direction). Boom!")
-	}
+    func shootCannon(_ direction: String) {
+        print("Shooting cannon to the (direction). Boom!")
+    }
 
-	func plunder() {
-		print("Plundering")
-	}
+    func plunder() {
+        print("Plundering")
+    }
 }
 
 class PirateHunterShip: Ship {
-	func shootCannon(_ direction: String) {
-		print("Shooting cannon to the (direction). Boom!")
-	}
+    func shootCannon(_ direction: String) {
+        print("Shooting cannon to the (direction). Boom!")
+    }
 
-	func arrestPirates() {
-		print("Game over!")
-	}
+    func arrestPirates() {
+        print("Game over!")
+    }
 }
 ```
 
 The method `shootCannon(:)` is still duplicated. So let’s create another subclass of Ship.
 ```swift
 class ArmedShip: Ship {
-	func shootCannon(_ direction: String) {
-		print("Shooting cannon to the (direction). Boom!")
-	}
+    func shootCannon(_ direction: String) {
+        print("Shooting cannon to the (direction). Boom!")
+    }
 }
 ```
 
 Now all armed ships can inherit this method instead of duplicating it.
 ```swift
 class PirateShip: ArmedShip {
-	func plunder() {
-		print("Plundering")
-	}
+    func plunder() {
+        print("Plundering")
+    }
 }
 
 class PirateHunterShip: ArmedShip {
-	func arrestPirates() {
-		print("Game over!")
-	}
+    func arrestPirates() {
+        print("Game over!")
+    }
 }
 ```
 
@@ -130,21 +130,21 @@ But now, with all those pirates haunting the seas these days, more and more merc
 These are the methods we need for an armed merchant ship:
 ```swift
 class ArmedMerchantShip {
-	func sail(_ direction: String) {
-		print("Sailing \(direction)")
-	}
+    func sail(_ direction: String) {
+        print("Sailing \(direction)")
+    }
 
-	func shootCannon(_ direction: String) 
-		print("Shooting cannon to the (direction). Boom!")
-	}
+    func shootCannon(_ direction: String) 
+        print("Shooting cannon to the (direction). Boom!")
+    }
 
-	func load(_ goods: String) {
-		print("Loading \(goods)")
-	}
+    func load(_ goods: String) {
+        print("Loading \(goods)")
+    }
 
-	func unload(_ goods: String) {
-		print("Unloading \(goods)"
-	}
+    func unload(_ goods: String) {
+        print("Unloading \(goods)"
+    }
 }
 ```
 
@@ -153,13 +153,13 @@ But now we have a lot of duplication again.
 If we inherit from ArmedShip, we can get rid of the duplicated `sail` and `shootCannon` methods.
 ```swift
 class ArmedMerchantShip: ArmedShip {
-	func load(_ goods: String) {
-		print("Loading \(goods)")
-	}
+    func load(_ goods: String) {
+        print("Loading \(goods)")
+    }
 
-	func unload(_ goods: String) {
-		print("Unloading \(goods)"
-	}
+    func unload(_ goods: String) {
+        print("Unloading \(goods)"
+    }
 }
 ```
 
@@ -173,45 +173,45 @@ Inheritance is described as an **is-a** relationship. A `MerchantShip` **is a** 
 Now let’s try to solve the same problem with composition instead of inheritance. Let’s start with our three ships again. Remember we wanted to eliminate the duplication here.
 ```swift
 class PirateShip {
-	func sail(_ direction: String) {
-		print("Sailing \(direction)")
-	}
+    func sail(_ direction: String) {
+        print("Sailing \(direction)")
+    }
 
-	func shootCannon(_ direction: String) {
-		print("Shooting cannon to the \(direction). Boom!")
-	}
+    func shootCannon(_ direction: String) {
+        print("Shooting cannon to the \(direction). Boom!")
+    }
 
-	func plunder() {
-		print("Plundering")
-	}
+    func plunder() {
+        print("Plundering")
+    }
 }
 
 class MerchantShip {
-	func sail(_ direction: String) {
-		print("Sailing \(direction)")
-	}
+    func sail(_ direction: String) {
+        print("Sailing \(direction)")
+    }
 
-	func load(_ goods: String) {
-		print("Loading \(goods)")
-	}
+    func load(_ goods: String) {
+        print("Loading \(goods)")
+    }
 
-	func unload(_ goods: String) {
-		print("Unloading \(goods)")
-	}
+    func unload(_ goods: String) {
+        print("Unloading \(goods)")
+    }
 }
 
 class PirateHunterShip {
-	func sail(_ direction: String) {
-		print("Sailing \(direction)")
-	}
+    func sail(_ direction: String) {
+        print("Sailing \(direction)")
+    }
 
-	func shootCannon(_ direction: String) {
-		print("Shooting cannon to the \(direction). Boom!")
-	}
+    func shootCannon(_ direction: String) {
+        print("Shooting cannon to the \(direction). Boom!")
+    }
 
-	func arrestPirates() {
-		print("Game over!")
-	}
+    func arrestPirates() {
+        print("Game over!")
+    }
 }
 ```
 
@@ -219,49 +219,49 @@ In order to work with composition, we need to think small. For example, who or w
 No, it’s only the cannon. So let’s define a tiny class `Cannon` that only does this one thing.
 ```swift
 class Cannon {
-	func shoot(_ direction: String) {
-		print("Shooting cannon to the \(direction). Boom!")
-	}
+    func shoot(_ direction: String) {
+        print("Shooting cannon to the \(direction). Boom!")
+    }
 }
 ```
 
 What do we need to sail? A mast, a sail, a helm, a rudder, but we need all of these together. Let’s call it `SailingEquipment`.
 ```swift
 class SailingEquipment {
-	func sail(_ direction: String) {
-		print("Sailing \(direction)")
-	}
+    func sail(_ direction: String) {
+        print("Sailing \(direction)")
+    }
 }
 ```
 
 Now, who does the plundering? Is it the ship itself? No, let’s say that’s the `BoardingCrew`.
 ```swift
 class BoardingCrew {
-	func plunder() {
-		print("Plundering")
-	}
+    func plunder() {
+        print("Plundering")
+    }
 }
 ```
 
 What does a ship need to be able to load and unload goods? We need a `Hold`.
 ```swift
 class Hold {
-	func load(_ goods: String) {
-		print("Loading \(goods)")
-	}
+    func load(_ goods: String) {
+        print("Loading \(goods)")
+    }
 
-	func unload(_ goods: String) {
-		print("Unloading \(goods)"
-	}
+    func unload(_ goods: String) {
+        print("Unloading \(goods)"
+    }
 }
 ```
 
 And finally, who is arresting pirates? Let’s call them the `NavalOfficers`.
 ```swift
 class NavalOfficers {
-	func arrestPirates() {
-		print("Game over!")
-	}
+    func arrestPirates() {
+        print("Game over!")
+    }
 }
 ```
 
@@ -270,21 +270,21 @@ And now we have all these tiny components and can compose them to our liking.
 A `PirateShip` should be able to sail, shoot, and plunder. So it needs `SailingEquipment`, a `Cannon`, and a `BoardingCrew`. Then we can use the cannon to shoot, the boarding crew to plunder, and so on.
 ```swift
 class PirateShip {
-	let sailingEquipment: SailingEquipment
-	let cannon: Cannon
-	let boardingCrew: BoardingCrew
+    let sailingEquipment: SailingEquipment
+    let cannon: Cannon
+    let boardingCrew: BoardingCrew
 
-	init(sailingEquipment: SailingEquipment, cannon: Cannon, boardingCrew: BoardingCrew) {
-		self.sailingEquipment = sailingEquipment
-		self.cannon = cannon
-		self.boardingCrew = boardingCrew
-	}
+    init(sailingEquipment: SailingEquipment, cannon: Cannon, boardingCrew: BoardingCrew) {
+        self.sailingEquipment = sailingEquipment
+        self.cannon = cannon
+        self.boardingCrew = boardingCrew
+    }
 
-	func attack(_ direction: String) {
-		sailingEquipment.sail(direction)
-		cannon.shoot(direction)
-		boadingCrew.plunder()
-	}
+    func attack(_ direction: String) {
+        sailingEquipment.sail(direction)
+        cannon.shoot(direction)
+        boadingCrew.plunder()
+    }
 }
 ```
 
@@ -293,33 +293,33 @@ Remember that I said that inheritance is called an **is-a** relationship? With c
 Next, let’s do the same with the `MerchantShip`. The `MerchantShip` now **has a** hold to load and unload goods.
 ```swift
 class MerchantShip {
-	let sailingEquipment: SailingEquipment
-	let hold: Hold
+    let sailingEquipment: SailingEquipment
+    let hold: Hold
 
-	init(sailingEquipment: SailingEquipment, hold: Hold) {
-		self.sailingEquipment = sailingEquipment
-		self.hold = hold
-	}
+    init(sailingEquipment: SailingEquipment, hold: Hold) {
+        self.sailingEquipment = sailingEquipment
+        self.hold = hold
+    }
 
-	func exchange(_ oldGoods: String, with newGoods: String) {
-		hold.unload(oldGoods)
-		hold.load(newGoods
-	}
+    func exchange(_ oldGoods: String, with newGoods: String) {
+        hold.unload(oldGoods)
+        hold.load(newGoods
+    }
 }
 ```
 
 And now the `PirateHunterShip`.
 ```swift
 class PirateHunterShip {
-	let sailingEquipment: SailingEquipment
-	let cannon: Cannon
-	let navalOfficers: NavalOfficers
+    let sailingEquipment: SailingEquipment
+    let cannon: Cannon
+    let navalOfficers: NavalOfficers
 
-	init(sailingEquipment: SailingEquipment, cannon: Cannon, navalOfficers: NavalOfficers) {
-		self.sailingEquipment = sailingEquipment
-		self.cannon = cannon
-		self.navalOfficers = navalOfficers
-	}
+    init(sailingEquipment: SailingEquipment, cannon: Cannon, navalOfficers: NavalOfficers) {
+        self.sailingEquipment = sailingEquipment
+        self.cannon = cannon
+        self.navalOfficers = navalOfficers
+    }
 }
 ```
 
@@ -364,22 +364,22 @@ So composition is much more flexible than inheritance.
 And here comes the next step. You can make this even more composable by using protocols instead of concrete types. For example, let’s make `Cannon` a protocol instead of a concrete class.
 ```swift
 protocol Cannon {
-	func shoot(_ direction: String)
+    func shoot(_ direction: String)
 }
 ```
 
 Now our ships can use different kinds of cannons.
 ```swift
 class LongRangeCannon: Cannon {
-	func shoot(_ direction: String) {
-		print("Shooting cannon FAR to the \(direction). Boom!")
-	}
+    func shoot(_ direction: String) {
+        print("Shooting cannon FAR to the \(direction). Boom!")
+    }
 }
 
 class LoudCannon: Cannon {
-	func shoot(_ direction: String) {
-		print("Shooting cannon to the \(direction). BOOOOM!")
-	}
+    func shoot(_ direction: String) {
+        print("Shooting cannon to the \(direction). BOOOOM!")
+    }
 }
 ```
 
