@@ -441,7 +441,7 @@ Fair winds and goodbye!
 
 ---
 
-### Further Learning and Sources
+## Further Learning and Sources
 - I can't recommend enough the iOS Lead Essentials program at [essentialdeveloper.com](https://www.essentialdeveloper.com).
 - Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides. [Design Patterns - Elements of Reusable Object-Oriented Software](https://www.goodreads.com/book/show/85009.Design_Patterns). Addison-Wesley. P. 18-20: "Inheritance versus Composition".
 - Wikipedia article: [Composition over Inheritance](https://en.wikipedia.org/wiki/Composition_over_inheritance)
