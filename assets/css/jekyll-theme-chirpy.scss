@@ -10,15 +10,5 @@
 
 /* append your custom style below */
 
-/* Adjust heading font sizes */
-h2 {
-  font-size: 1.9rem;
-}
-h3 {
-  font-size: 1.3rem;
-  opacity: 0.9;
-}
-h4 {
-  font-size: 1.0rem;
-  font-weight: 600;
-}
+/* Import custom styles */
+@use "addon/custom" as *;
