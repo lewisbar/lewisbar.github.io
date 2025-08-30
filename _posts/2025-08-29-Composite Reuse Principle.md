@@ -1,6 +1,7 @@
 ---
 title: The Composite Reuse Principle - Composition over Inheritance
 date: 2025-08-29 15:20:00 +0200
+description: "Discover the Composite Reuse Principle in Swift! Composition over inheritance ... with pirates!"
 categories: [Design Principles]
 tags: [principles, composition, inheritance]     # TAG names should always be lowercase
 ---
