@@ -70,16 +70,6 @@ class Ship {
 
 Now all ships can inherit this method by subclassing Ship. So they don’t have to duplicate the `sail` method anymore.
 ```swift
-class MerchantShip: Ship {
-    func load(_ goods: String) {
-        print("Loading \(goods)")
-    }
-
-    func unload(_ goods: String) {
-        print("Unloading \(goods)"
-    }
-}
-
 class PirateShip: Ship {
     func shootCannon(_ direction: String) {
         print("Shooting cannon to the (direction). Boom!")
@@ -87,6 +77,16 @@ class PirateShip: Ship {
 
     func plunder() {
         print("Plundering")
+    }
+}
+
+class MerchantShip: Ship {
+    func load(_ goods: String) {
+        print("Loading \(goods)")
+    }
+
+    func unload(_ goods: String) {
+        print("Unloading \(goods)"
     }
 }
 
