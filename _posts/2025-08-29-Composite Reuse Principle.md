@@ -87,7 +87,7 @@ class MerchantShip: Ship {
     }
 
     func unload(_ goods: String) {
-        print("Unloading \(goods)"
+        print("Unloading \(goods)")
     }
 }
 
@@ -139,7 +139,7 @@ class ArmedMerchantShip {
         print("Sailing \(direction)")
     }
 
-    func shootCannon(_ direction: String) 
+    func shootCannon(_ direction: String) {
         print("Shooting cannon to the (direction). Boom!")
     }
 
@@ -148,7 +148,7 @@ class ArmedMerchantShip {
     }
 
     func unload(_ goods: String) {
-        print("Unloading \(goods)"
+        print("Unloading \(goods)")
     }
 }
 ```
@@ -163,7 +163,7 @@ class ArmedMerchantShip: ArmedShip {
     }
 
     func unload(_ goods: String) {
-        print("Unloading \(goods)"
+        print("Unloading \(goods)")
     }
 }
 ```
@@ -260,7 +260,7 @@ class Hold {
     }
 
     func unload(_ goods: String) {
-        print("Unloading \(goods)"
+        print("Unloading \(goods)")
     }
 }
 ```
@@ -314,7 +314,7 @@ class MerchantShip {
 
     func exchange(_ oldGoods: String, with newGoods: String) {
         hold.unload(oldGoods)
-        hold.load(newGoods
+        hold.load(newGoods)
     }
 }
 ```
