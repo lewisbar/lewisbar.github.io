@@ -432,7 +432,7 @@ To sum up some of the advantages of composition:
 
 ### Wrapping It Up
 
-So in most cases, composition is better than class inheritance if you want to reuse or share code.
+So in most cases, composition is better than class inheritance if your goal is to reuse or share code.
 
 A better use of inheritance is extending the functionality of existing classes, like inheriting from UIViewController and overriding its lifecycle methods.
 
