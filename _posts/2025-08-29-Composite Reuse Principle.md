@@ -442,7 +442,8 @@ Fair winds and goodbye!
 
 ---
 
-## Further Learning and References
+## Links and References
+- You can find the code on [GitHub](https://github.com/SwiftForPirates/Composite-Reuse-Principle).
 - I first learned about this at [essentialdeveloper.com](https://www.essentialdeveloper.com). I can't recommend enough their iOS Lead Essentials program.
 - Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides. [Design Patterns - Elements of Reusable Object-Oriented Software](https://www.goodreads.com/book/show/85009.Design_Patterns). Addison-Wesley. P. 18-20: "Inheritance versus Composition".
 - Wikipedia article: [Composition over Inheritance](https://en.wikipedia.org/wiki/Composition_over_inheritance)
