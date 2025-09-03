@@ -102,7 +102,7 @@ class PirateHunterShip: Ship {
 }
 ```
 
-The method `shootCannon(:)` is still duplicated. So let’s create another subclass of Ship.
+The method `shootCannon` is still duplicated. So let’s create another subclass of Ship.
 ```swift
 class ArmedShip: Ship {
     func shootCannon(_ direction: String) {
@@ -168,7 +168,7 @@ class ArmedMerchantShip: ArmedShip {
 }
 ```
 
-To avoid duplicating `load(:)` and `unload(:)`, we would have to inherit from `MerchantShip`. But in Swift, you can only inherit from a single class.
+To avoid duplicating `load` and `unload`, we would have to inherit from `MerchantShip`. But in Swift, you can only inherit from a single class.
 
 So that’s one limitation of inheritance. It’s not that flexible.
 
