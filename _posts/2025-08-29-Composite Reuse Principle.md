@@ -93,7 +93,7 @@ class MerchantShip: Ship {
 
 class PirateHunterShip: Ship {
     func shootCannon(_ direction: String) {
-        print("Shooting cannon to the (direction). Boom!")
+        print("Shooting cannon to the \(direction). Boom!")
     }
 
     func arrestPirates() {
@@ -106,7 +106,7 @@ The method `shootCannon` is still duplicated. So let’s create another subclass
 ```swift
 class ArmedShip: Ship {
     func shootCannon(_ direction: String) {
-        print("Shooting cannon to the (direction). Boom!")
+        print("Shooting cannon to the \(direction). Boom!")
     }
 }
 ```
@@ -140,7 +140,7 @@ class ArmedMerchantShip {
     }
 
     func shootCannon(_ direction: String) {
-        print("Shooting cannon to the (direction). Boom!")
+        print("Shooting cannon to the \(direction). Boom!")
     }
 
     func load(_ goods: String) {
