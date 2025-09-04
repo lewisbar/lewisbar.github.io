@@ -8,7 +8,7 @@ tags: [principles, composition, inheritance]     # TAG names should always be lo
 ## Introduction
 Ahoy and welcome to Swift for Pirates!
 
-Today, we want to talk about the **Composite Reuse Principle** which states that when it comes to reusing code to avoid duplication, it’s in most cases best to prefer **composition over inheritance**.
+Today, we want to talk about the **Composite Reuse Principle** which states that when it comes to reusing code to avoid duplication, it’s in most cases best to prefer **composition over inheritance**. Or, to be more precise, to prefer **object composition** over **class inheritance**.
 
 ### The Problem: Duplicated Code
 
