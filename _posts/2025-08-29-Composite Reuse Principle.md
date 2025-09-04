@@ -418,25 +418,36 @@ let dangerousHunter = PirateHunterShip(
 )
 ```
 
-And so we can compose our objects whichever way we like and create components with different behavior even at runtime.
+And so we can compose our objects whichever way we like and create components with different behavior even at runtime. There are a lot more ways of composition, this was just a basic example.
 
-### Advantages of Composition
+Now, let's compare our two candidates in some key aspects.
 
-To sum up some of the advantages of composition:
+### A Comparison
 
-- Using composition, our code becomes more flexible and easier to change.
-
-- These tiny components are easier to develop and reason about than an inheritance hierarchy of classes.
-
-- They are also easier to test, easier to reuse, and easier to maintain.
+| Inheritance | Composition |
+| --- | --- |
+| "is-a" relationships | "has-a" relationships |
+| tight coupling to superclass | loose coupling when using boundaries like protocols |
+| static | dynamic |
+| rigid | flexible |
+| fixed at compile-time | dynamically created at runtime |
+| hard-codes relationships between classes | dynamically creates relationships between objects/instances |
+| hard to change and maintain (potential cascading changes when changing superclass) | easy to change and maintain |
+| complex hierarchies can be hard to reason about | tiny single-responsibility components are easier to understand |
+| harder to test | easy to test tiny components in isolation |
+| limited reusability | easy to reuse tiny components |
 
 ### Wrapping It Up
 
-So in most cases, composition is better than class inheritance if your goal is to reuse or share code.
+So if your goal is to reuse or share code, composition is generally a better choice than class inheritance.
 
 A better use of inheritance is extending the functionality of existing classes, like inheriting from UIViewController and overriding its lifecycle methods.
 
-There are a lot more ways of composition, this was just a basic example. There is more to be said on this topic. If you’re interested, I’ll put some recommendations below.
+Inheritance can be the better solution whenever an is-a relationship makes sense.
+
+Both are tools in your programming toolbox, so pick whichever tool best solves the problem at hand. You can also combine both approaches.
+
+There is more to be said on this topic. If you’re interested, I’ll put some recommendations below.
 
 Fair winds and goodbye!
 
