@@ -69,7 +69,7 @@ class Ship {
 }
 ```
 
-Now all ships can inherit this method by subclassing Ship. So they don’t have to duplicate the `sail` method anymore.
+Now all ships can inherit this method by subclassing `Ship`. So they don’t have to duplicate the `sail` method anymore.
 ```swift
 class PirateShip: Ship {
     func shootCannon(_ direction: String) {
