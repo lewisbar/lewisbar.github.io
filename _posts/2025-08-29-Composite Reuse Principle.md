@@ -168,9 +168,9 @@ class ArmedMerchantShip: ArmedShip {
 }
 ```
 
-To avoid duplicating `load` and `unload`, we would have to inherit from `MerchantShip`. But in Swift, you can only inherit from a single class.
+But to avoid duplicating `load` and `unload`, we would also have to inherit from `MerchantShip`. In Swift, you can only inherit from a single class. So we can't eliminate all duplication this way.
 
-So that’s one limitation of inheritance. It’s not that flexible.
+That’s one limitation of inheritance. It’s not that flexible.
 
 ### Strong Coupling
 
@@ -299,7 +299,7 @@ class PirateShip {
 }
 ```
 
-Remember that I said that inheritance is called an **is-a** relationship? With composition, we have a **has-a** relationship. A `PirateShip` **has a** cannon it can use to shoot. It **has a** boardingCrew that can be sent out to plunder.
+Remember that I said that inheritance is called an **is-a** relationship? With composition, we have a **has-a** relationship. A `PirateShip` **has a** cannon it can use to shoot. It **has a** boarding crew that can be sent out to plunder.
 
 Next, let’s do the same with the `MerchantShip`. The `MerchantShip` now **has a** hold to load and unload goods.
 ```swift
@@ -359,7 +359,7 @@ class ArmedMerchantShip {
 }
 ```
 
-This seemed impossible to solve with inheritance. But with our composition approach, it’s easy. We just need sailing equipment, a cannon, and a hold.
+This seemed impossible to solve with inheritance. But with our composition approach, it’s easy! We just need sailing equipment, a cannon, and a hold.
 ```swift
 class ArmedMerchantShip {
     let sailingEquipment: SailingEquipment
@@ -374,7 +374,7 @@ class ArmedMerchantShip {
 }
 ```
 
-So composition is much more flexible than inheritance.
+Problem solved. So composition is much more flexible than inheritance.
 
 ### Going Even Further: Protocols
 
