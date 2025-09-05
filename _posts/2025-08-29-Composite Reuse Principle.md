@@ -71,7 +71,7 @@ class Ship {
 }
 ```
 
-Now all ships can inherit this method by subclassing `Ship`. So they don’t have to duplicate the `sail` method anymore.
+Now all ships can inherit the `sail` method by subclassing `Ship`. So they don’t have to duplicate the method anymore.
 ```swift
 class PirateShip: Ship {
     func shootCannon(_ direction: String) {
@@ -254,7 +254,7 @@ class BoardingCrew {
 }
 ```
 
-What does a ship need to be able to load and unload goods? We need a `Hold`.
+What does a ship need to be able to load and unload goods? It needs a `Hold`.
 ```swift
 class Hold {
     func load(_ goods: String) {
@@ -280,7 +280,7 @@ And now we have all these tiny components and can compose them to our liking.
 
 ### Solving the Problem
 
-A `PirateShip` should be able to sail, shoot, and plunder. So it needs `SailingEquipment`, a `Cannon`, and a `BoardingCrew`. Then we can use the cannon to shoot, the boarding crew to plunder, and so on.
+A `PirateShip` should be able to sail, shoot, and plunder. So it needs `SailingEquipment`, a `Cannon`, and a `BoardingCrew`. Then we can use the sailing equipment to sail, the cannon to shoot, and the boarding crew to plunder.
 ```swift
 class PirateShip {
     let sailingEquipment: SailingEquipment
@@ -303,7 +303,7 @@ class PirateShip {
 
 Remember that I said that inheritance is called an **is-a** relationship? With composition, we have a **has-a** relationship. A `PirateShip` **has a** cannon it can use to shoot. It **has a** boarding crew that can be sent out to plunder.
 
-Next, let’s do the same with the `MerchantShip`. The `MerchantShip` now **has a** hold to load and unload goods.
+Next, let’s do the same with the `MerchantShip`. The `MerchantShip` now **has a** hold to be able load and unload goods.
 ```swift
 class MerchantShip {
     let sailingEquipment: SailingEquipment
@@ -389,6 +389,12 @@ protocol Cannon {
 
 Now our ships can use different kinds of cannons.
 ```swift
+class BasicCannon: Cannon {
+    func shoot(_ direction: String) {
+        print("Shooting cannon to the \(direction). Boom!")
+    }
+}
+
 class LongRangeCannon: Cannon {
     func shoot(_ direction: String) {
         print("Shooting cannon FAR to the \(direction). Boom!")
@@ -422,32 +428,31 @@ let dangerousHunter = PirateHunterShip(
 
 And so we can compose our objects whichever way we like and create components with different behavior even at runtime. There are a lot more ways of composition, this was just a basic example.
 
-Now, let's compare our two candidates in some key aspects.
+Let's compare our two candidates in some key aspects.
 
 ### A Comparison
 
 | Inheritance | Composition |
 | --- | --- |
-| "is-a" relationships | "has-a" relationships |
-| tight coupling to superclass | loose coupling when using boundaries like protocols |
+| forms "is-a" relationships | forms "has-a" relationships |
+| tight coupling to superclass | loose coupling when using abstractions like protocols |
 | static | dynamic |
 | rigid | flexible |
 | fixed at compile-time | dynamically created at runtime |
 | hard-codes relationships between classes | dynamically creates relationships between objects/instances |
 | hard to change and maintain (potential cascading changes when changing superclass) | easy to change and maintain |
-| complex hierarchies can be hard to reason about | tiny single-responsibility components are easier to understand |
-| harder to test | easy to test tiny components in isolation |
-| limited reusability | easy to reuse tiny components |
+| complex hierarchies can be difficult to reason about | small, single-responsibility components are easier to understand |
+| harder to test | easy to test small components in isolation |
+| limited reusability | easy to reuse small components |
 
 ### Wrapping It Up
 
 So if your goal is to reuse or share code, composition is generally a better choice than class inheritance.
 
-A better use of inheritance is extending the functionality of existing classes, like inheriting from UIViewController and overriding its lifecycle methods.
+A better use of inheritance is extending the functionality of existing classes, like inheriting from UIViewController and overriding its lifecycle methods.  
+Inheritance can be the better solution when an is-a relationship makes sense.
 
-Inheritance can be the better solution whenever an is-a relationship makes sense.
-
-Both are tools in your programming toolbox, so pick whichever tool best solves the problem at hand. You can also combine both approaches.
+Both composition and inheritance are tools in your programming toolbox, so pick whichever tool best solves the problem at hand. You can also combine both approaches.
 
 There is more to be said on this topic. If you’re interested, I’ll put some recommendations below.
 
