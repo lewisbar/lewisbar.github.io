@@ -434,16 +434,16 @@ Let's compare our two candidates in some key aspects.
 
 | Inheritance | Composition |
 | --- | --- |
-| forms "is-a" relationships | forms "has-a" relationships |
-| tight coupling to superclass | loose coupling when using abstractions like protocols |
-| static | dynamic |
-| rigid | flexible |
-| fixed at compile-time | dynamically created at runtime |
-| hard-codes relationships between classes | dynamically creates relationships between objects/instances |
-| hard to change and maintain (potential cascading changes when changing superclass) | easy to change and maintain |
-| complex hierarchies can be difficult to reason about | small, single-responsibility components are easier to understand |
-| harder to test | easy to test small components in isolation |
-| limited reusability | easy to reuse small components |
+| Forms "is-a" relationships | Forms "has-a" relationships |
+| Tight coupling to superclass | Loose coupling when using abstractions like protocols |
+| Static | Dynamic |
+| Rigid | Flexible |
+| Fixed at compile-time | Dynamically created at runtime |
+| Hard-codes relationships between classes | Dynamically creates relationships between objects/instances |
+| Hard to change and maintain (potential cascading changes when changing superclass) | Easy to change and maintain |
+| Complex hierarchies can be difficult to reason about | Small, single-responsibility components are easier to understand |
+| Harder to test | Easy to test small components in isolation |
+| Limited reusability | Easy to reuse small components |
 
 ### Wrapping It Up
 
