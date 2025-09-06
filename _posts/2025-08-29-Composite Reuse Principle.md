@@ -157,7 +157,7 @@ class ArmedMerchantShip {
 
 But now we have a lot of duplication again.
 
-If we inherit from ArmedShip, we can get rid of the duplicated `sail` and `shootCannon` methods.
+If we inherit from `ArmedShip`, we can get rid of the duplicated `sail` and `shootCannon` methods.
 ```swift
 class ArmedMerchantShip: ArmedShip {
     func load(_ goods: String) {
@@ -170,7 +170,15 @@ class ArmedMerchantShip: ArmedShip {
 }
 ```
 
-But to avoid duplicating `load` and `unload`, we would also have to inherit from `MerchantShip`. In Swift, you can only inherit from a single class. So we can't eliminate all duplication this way.
+Or we could inherit from `MerchantShip` and remove the duplicated `sail`, `load` and `unload` methods. In that case, we'd have to implement `shootCannon` again, which is not part of `MerchantShip`.
+```swift
+class ArmedMerchantShip: MerchantShip {
+    func shootCannon(_ direction: String) {
+        print("Shooting cannon to the \(direction). Boom!")
+    }
+}
+```
+To eliminate all duplication, we'd have to inherit from both `ArmedShip` and `MerchantShip`, which is not possible (at least in Swift, for good reasons). So, with class inheritance, we're stuck here.
 
 That’s one limitation of inheritance. It’s not that flexible.
 
@@ -465,3 +473,4 @@ Fair winds and goodbye!
 - I first learned about this at [essentialdeveloper.com](https://www.essentialdeveloper.com). I can't recommend enough their iOS Lead Essentials program.
 - Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides. [Design Patterns - Elements of Reusable Object-Oriented Software](https://www.goodreads.com/book/show/85009.Design_Patterns). Addison-Wesley. P. 18-20: "Inheritance versus Composition".
 - Wikipedia article: [Composition over Inheritance](https://en.wikipedia.org/wiki/Composition_over_inheritance)
+- If you're interested why Swift doesn't support inheriting from multiple classes, see [Multiple Inheritance](https://en.wikipedia.org/wiki/Multiple_inheritance).
