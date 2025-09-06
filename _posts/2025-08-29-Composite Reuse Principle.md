@@ -35,12 +35,12 @@ class MerchantShip {
         print("Sailing \(direction)")
     }
 
-    func load(_ goods: String) {
-        print("Loading \(goods)")
+    func load(_ cargo: String) {
+        print("Loading \(cargo)")
     }
 
-    func unload(_ goods: String) {
-        print("Unloading \(goods)")
+    func unload(_ cargo: String) {
+        print("Unloading \(cargo)")
     }
 }
 
@@ -84,12 +84,12 @@ class PirateShip: Ship {
 }
 
 class MerchantShip: Ship {
-    func load(_ goods: String) {
-        print("Loading \(goods)")
+    func load(_ cargo: String) {
+        print("Loading \(cargo)")
     }
 
-    func unload(_ goods: String) {
-        print("Unloading \(goods)")
+    func unload(_ cargo: String) {
+        print("Unloading \(cargo)")
     }
 }
 
@@ -145,12 +145,12 @@ class ArmedMerchantShip {
         print("Shooting cannon to the \(direction). Boom!")
     }
 
-    func load(_ goods: String) {
-        print("Loading \(goods)")
+    func load(_ cargo: String) {
+        print("Loading \(cargo)")
     }
 
-    func unload(_ goods: String) {
-        print("Unloading \(goods)")
+    func unload(_ cargo: String) {
+        print("Unloading \(cargo)")
     }
 }
 ```
@@ -160,12 +160,12 @@ But now we have a lot of duplication again.
 If we inherit from `ArmedShip`, we can get rid of the duplicated `sail` and `shootCannon` methods.
 ```swift
 class ArmedMerchantShip: ArmedShip {
-    func load(_ goods: String) {
-        print("Loading \(goods)")
+    func load(_ cargo: String) {
+        print("Loading \(cargo)")
     }
 
-    func unload(_ goods: String) {
-        print("Unloading \(goods)")
+    func unload(_ cargo: String) {
+        print("Unloading \(cargo)")
     }
 }
 ```
@@ -208,12 +208,12 @@ class MerchantShip {
         print("Sailing \(direction)")
     }
 
-    func load(_ goods: String) {
-        print("Loading \(goods)")
+    func load(_ cargo: String) {
+        print("Loading \(cargo)")
     }
 
-    func unload(_ goods: String) {
-        print("Unloading \(goods)")
+    func unload(_ cargo: String) {
+        print("Unloading \(cargo)")
     }
 }
 
@@ -262,15 +262,15 @@ class BoardingCrew {
 }
 ```
 
-What does a ship need to be able to load and unload goods? It needs a `Hold`.
+What does a ship need to be able to load and unload cargo? It needs a `Hold`.
 ```swift
 class Hold {
-    func load(_ goods: String) {
-        print("Loading \(goods)")
+    func load(_ cargo: String) {
+        print("Loading \(cargo)")
     }
 
-    func unload(_ goods: String) {
-        print("Unloading \(goods)")
+    func unload(_ cargo: String) {
+        print("Unloading \(cargo)")
     }
 }
 ```
@@ -311,7 +311,7 @@ class PirateShip {
 
 Remember that I said that inheritance is called an **is-a** relationship? With composition, we have a **has-a** relationship. A `PirateShip` **has a** cannon it can use to shoot. It **has a** boarding crew that can be sent out to plunder.
 
-Next, let’s do the same with the `MerchantShip`. The `MerchantShip` now **has a** hold to be able load and unload goods.
+Next, let’s do the same with the `MerchantShip`. The `MerchantShip` now **has a** hold to be able load and unload cargo.
 ```swift
 class MerchantShip {
     let sailingEquipment: SailingEquipment
@@ -322,9 +322,9 @@ class MerchantShip {
         self.hold = hold
     }
 
-    func exchange(_ oldGoods: String, with newGoods: String) {
-        hold.unload(oldGoods)
-        hold.load(newGoods)
+    func exchange(_ oldCargo: String, with newCargo: String) {
+        hold.unload(oldCargo)
+        hold.load(newCargo)
     }
 }
 ```
@@ -359,12 +359,12 @@ class ArmedMerchantShip {
         print("Shooting cannon to the \(direction). Boom!")
     }
 
-    func load(_ goods: String) {
-        print("Loading \(goods)")
+    func load(_ cargo: String) {
+        print("Loading \(cargo)")
     }
 
-    func unload(_ goods: String) {
-        print("Unloading \(goods)")
+    func unload(_ cargo: String) {
+        print("Unloading \(cargo)")
     }
 }
 ```
