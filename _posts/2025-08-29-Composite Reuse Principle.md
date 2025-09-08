@@ -304,7 +304,7 @@ class PirateShip {
     func attack(_ direction: String) {
         sailingEquipment.sail(direction)
         cannon.shoot(direction)
-        boadingCrew.plunder()
+        boardingCrew.plunder()
     }
 }
 ```
