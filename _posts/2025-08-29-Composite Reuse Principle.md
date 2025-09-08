@@ -438,7 +438,7 @@ And so we can compose our objects whichever way we like and create components wi
 
 Let's compare our two candidates in some key aspects.
 
-### A Comparison
+## A Comparison
 
 | Inheritance | Composition |
 | --- | --- |
@@ -453,7 +453,7 @@ Let's compare our two candidates in some key aspects.
 | Harder to test | Easy to test small components in isolation |
 | Limited reusability | Easy to reuse small components |
 
-### Wrapping It Up
+## Wrapping It Up
 
 So if your goal is to reuse or share code, composition is generally a better choice than class inheritance.
 
