@@ -104,7 +104,7 @@ class PirateHunterShip: Ship {
 }
 ```
 
-The method `shootCannon` is still duplicated. So let’s create another subclass of Ship.
+The method `shootCannon` is still duplicated. So let’s create another subclass of `Ship`.
 ```swift
 class ArmedShip: Ship {
     func shootCannon(_ direction: String) {
