@@ -4,6 +4,7 @@ date: 2025-08-29 15:20:00 +0200
 description: "Discover the Composite Reuse Principle in Swift! Composition over inheritance ... with pirates!"
 categories: [Design Principles]
 tags: [principles, composition, inheritance]     # TAG names should always be lowercase
+mermaid: true
 ---
 ## Introduction
 Ahoy and welcome to Swift for Pirates!
@@ -128,7 +129,26 @@ class PirateHunterShip: ArmedShip {
 }
 ```
 
-This works great so far. We’ve eliminated all duplication.
+This works great so far. We’ve eliminated all duplication. This is what our inheritance hierarchy looks like:
+
+```mermaid
+---
+config:
+    class:
+        hideEmptyMembersBox: true
+---
+classDiagram
+    class Ship
+    class ArmedShip
+    class PirateShip
+    class PirateHunterShip
+    class MerchantShip
+
+    Ship <|-- ArmedShip
+    ArmedShip <|-- PirateShip
+    ArmedShip <|-- PirateHunterShip
+    Ship <|-- MerchantShip
+```
 
 But now, with all those pirates haunting the seas these days, more and more merchants choose to arm their ships so they can defend themselves.
 
@@ -180,11 +200,48 @@ class ArmedMerchantShip: MerchantShip {
 ```
 To eliminate all duplication, we'd have to inherit from both `ArmedShip` and `MerchantShip`, which is not possible (at least in Swift, for good reasons). So, with class inheritance, we're stuck here.
 
+```mermaid
+---
+config:
+    class:
+        hideEmptyMembersBox: true
+---
+classDiagram
+    class Ship
+    class ArmedShip
+    class MerchantShip
+    class ArmedMerchantShip
+
+    Ship <|-- ArmedShip
+    Ship <|-- MerchantShip
+    ArmedShip <|-- ArmedMerchantShip : inherit?
+    MerchantShip <|-- ArmedMerchantShip : inherit? 
+```
+
 That’s one limitation of inheritance. It’s not that flexible.
 
 ### Strong Coupling
 
 Inheritance is described as an **is-a** relationship. A `MerchantShip` **is a** `Ship`. A `PirateShip` **is an** `ArmedShip`. It’s all or nothing. If you decide to inherit from a class, not only do you inherit all properties and behavior of that class, but you **become** a kind of that class. That’s the strongest form of coupling.
+
+```mermaid
+---
+config:
+    class:
+        hideEmptyMembersBox: true
+---
+classDiagram
+    class Ship
+    class ArmedShip
+    class PirateShip
+    class PirateHunterShip
+    class MerchantShip
+
+    Ship <|-- ArmedShip: is a
+    ArmedShip <|-- PirateShip: is an
+    ArmedShip <|-- PirateHunterShip: is an
+    Ship <|-- MerchantShip: is a
+```
 
 ## Composition
 Now let’s try to solve the same problem with composition instead of inheritance. Let’s start with our three ships again. Remember we wanted to eliminate the duplication here.
@@ -311,6 +368,25 @@ class PirateShip {
 
 Remember that I said that inheritance is called an **is-a** relationship? With composition, we have a **has-a** relationship. A `PirateShip` **has a** cannon it can use to shoot. It **has a** boarding crew that can be sent out to plunder.
 
+```mermaid
+---
+config:
+    class:
+        hideEmptyMembersBox: true
+---
+classDiagram
+    class Cannon:::picked
+    class SailingEquipment:::picked
+    class BoardingCrew:::picked
+    class PirateShip
+    style PirateShip fill:#952
+    classDef picked stroke:#952
+
+    Cannon <-- PirateShip: has a
+    SailingEquipment <-- PirateShip: has a
+    BoardingCrew <-- PirateShip: has a
+```
+
 Next, let’s do the same with the `MerchantShip`. The `MerchantShip` now **has a** hold to be able load and unload cargo.
 ```swift
 class MerchantShip {
@@ -384,7 +460,90 @@ class ArmedMerchantShip {
 }
 ```
 
-Problem solved. So composition is much more flexible than inheritance.
+Problem solved. So composition is much more flexible than inheritance. Every class can simply pick the functionality it needs.
+
+```mermaid
+---
+config:
+    class:
+        hideEmptyMembersBox: true
+---
+classDiagram
+    class Cannon:::picked
+    class SailingEquipment:::picked
+    class BoardingCrew:::picked
+    class Hold
+    class NavalOfficers
+    class PirateShip
+    style PirateShip fill:#952
+    classDef picked stroke:#952
+
+    Cannon <-- PirateShip
+    SailingEquipment <-- PirateShip
+    BoardingCrew <-- PirateShip
+```
+---
+```mermaid
+---
+config:
+    class:
+        hideEmptyMembersBox: true
+---
+classDiagram
+    class Cannon
+    class SailingEquipment:::picked
+    class BoardingCrew
+    class Hold:::picked
+    class NavalOfficers
+    class MerchantShip
+    style MerchantShip fill:#952
+    classDef picked stroke:#952
+
+    SailingEquipment <-- MerchantShip
+    Hold <-- MerchantShip
+````
+---
+```mermaid
+---
+config:
+    class:
+        hideEmptyMembersBox: true
+---
+classDiagram
+    class Cannon:::picked
+    class SailingEquipment:::picked
+    class BoardingCrew
+    class Hold
+    class NavalOfficers:::picked
+    class PirateHunterShip
+    style PirateHunterShip fill:#952
+    classDef picked stroke:#952
+
+    Cannon <-- PirateHunterShip
+    SailingEquipment <-- PirateHunterShip
+    NavalOfficers <-- PirateHunterShip
+```
+---
+```mermaid
+---
+config:
+    class:
+        hideEmptyMembersBox: true
+---
+classDiagram
+    class Cannon:::picked
+    class SailingEquipment:::picked
+    class BoardingCrew
+    class Hold:::picked
+    class NavalOfficers
+    class ArmedMerchantShip
+    style ArmedMerchantShip fill:#952
+    classDef picked stroke:#952
+
+    Cannon <-- ArmedMerchantShip
+    SailingEquipment <-- ArmedMerchantShip
+    Hold <-- ArmedMerchantShip
+```
 
 ### Going Even Further: Protocols
 
@@ -425,6 +584,28 @@ let loudMerchant = ArmedMerchantShip(
 )
 ```
 
+```mermaid
+---
+config:
+    class:
+        hideEmptyMembersBox: true
+---
+classDiagram
+    class _Cannon_:::abstraction
+    class SailingEquipment:::picked
+    class Hold:::picked
+    class ArmedMerchantShip
+    style ArmedMerchantShip fill:#952
+    classDef picked stroke:#952
+    classDef abstraction stroke:#952,stroke-width:2,stroke-dasharray: 5 5
+
+    _Cannon_ <-- ArmedMerchantShip
+    SailingEquipment <-- ArmedMerchantShip
+    Hold <-- ArmedMerchantShip
+    LoudCannon ..|> _Cannon_
+
+```
+
 And here is an extra dangerous pirate hunter with a long range cannon.
 ```swift
 let dangerousHunter = PirateHunterShip(
@@ -432,6 +613,28 @@ let dangerousHunter = PirateHunterShip(
     cannon: LongRangeCannon(), 
     navalOfficers: NavalOfficers()
 )
+```
+
+```mermaid
+---
+config:
+    class:
+        hideEmptyMembersBox: true
+---
+classDiagram
+    class _Cannon_:::abstraction
+    class SailingEquipment:::picked
+    class NavalOfficers:::picked
+    class PirateHunterShip
+    style PirateHunterShip fill:#952
+    classDef picked stroke:#952
+    classDef abstraction stroke:#952,stroke-width:2,stroke-dasharray: 5 5
+
+    _Cannon_ <-- PirateHunterShip
+    SailingEquipment <-- PirateHunterShip
+    NavalOfficers <-- PirateHunterShip
+    LongRangeCannon ..|> _Cannon_
+
 ```
 
 And so we can compose our objects whichever way we like and create components with different behavior even at runtime. There are a lot more ways of composition, this was just a basic example.
