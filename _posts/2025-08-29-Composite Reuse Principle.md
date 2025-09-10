@@ -379,8 +379,8 @@ classDiagram
     class SailingEquipment:::picked
     class BoardingCrew:::picked
     class PirateShip
-    style PirateShip fill:#952
-    classDef picked stroke:#952
+    style PirateShip fill:#CC7A38,color:white
+    classDef picked stroke:#CC7A38
 
     Cannon <-- PirateShip: has a
     SailingEquipment <-- PirateShip: has a
@@ -475,8 +475,8 @@ classDiagram
     class Hold
     class NavalOfficers
     class PirateShip
-    style PirateShip fill:#952
-    classDef picked stroke:#952
+    style PirateShip fill:#CC7A38,color:white
+    classDef picked stroke:#CC7A38
 
     Cannon <-- PirateShip
     SailingEquipment <-- PirateShip
@@ -496,8 +496,8 @@ classDiagram
     class Hold:::picked
     class NavalOfficers
     class MerchantShip
-    style MerchantShip fill:#952
-    classDef picked stroke:#952
+    style MerchantShip fill:#CC7A38,color:white
+    classDef picked stroke:#CC7A38
 
     SailingEquipment <-- MerchantShip
     Hold <-- MerchantShip
@@ -516,8 +516,8 @@ classDiagram
     class Hold
     class NavalOfficers:::picked
     class PirateHunterShip
-    style PirateHunterShip fill:#952
-    classDef picked stroke:#952
+    style PirateHunterShip fill:#CC7A38,color:white
+    classDef picked stroke:#CC7A38
 
     Cannon <-- PirateHunterShip
     SailingEquipment <-- PirateHunterShip
@@ -537,8 +537,8 @@ classDiagram
     class Hold:::picked
     class NavalOfficers
     class ArmedMerchantShip
-    style ArmedMerchantShip fill:#952
-    classDef picked stroke:#952
+    style ArmedMerchantShip fill:#CC7A38,color:white
+    classDef picked stroke:#CC7A38
 
     Cannon <-- ArmedMerchantShip
     SailingEquipment <-- ArmedMerchantShip
@@ -595,9 +595,9 @@ classDiagram
     class SailingEquipment:::picked
     class Hold:::picked
     class ArmedMerchantShip
-    style ArmedMerchantShip fill:#952
-    classDef picked stroke:#952
-    classDef abstraction stroke:#952,stroke-width:2,stroke-dasharray: 5 5
+    style ArmedMerchantShip fill:#CC7A38,color:white
+    classDef picked stroke:#CC7A38
+    classDef abstraction stroke:#CC7A38,stroke-width:2,stroke-dasharray: 5 5
 
     _Cannon_ <-- ArmedMerchantShip
     SailingEquipment <-- ArmedMerchantShip
@@ -626,9 +626,9 @@ classDiagram
     class SailingEquipment:::picked
     class NavalOfficers:::picked
     class PirateHunterShip
-    style PirateHunterShip fill:#952
-    classDef picked stroke:#952
-    classDef abstraction stroke:#952,stroke-width:2,stroke-dasharray: 5 5
+    style PirateHunterShip fill:#CC7A38,color:white
+    classDef picked stroke:#CC7A38
+    classDef abstraction stroke:#CC7A38,stroke-width:2,stroke-dasharray: 5 5
 
     _Cannon_ <-- PirateHunterShip
     SailingEquipment <-- PirateHunterShip
