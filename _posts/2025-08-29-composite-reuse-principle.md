@@ -134,6 +134,7 @@ This works great so far. We’ve eliminated all duplication. This is what our in
 <noscript>
 <p><strong>Note: Enable JavaScript in your browser to view this diagram.</strong></p>
 </noscript>
+
 ```mermaid
 ---
 config:
@@ -206,6 +207,7 @@ To eliminate all duplication, we'd have to inherit from both `ArmedShip` and `Me
 <noscript>
 <p><strong>Note: Enable JavaScript in your browser to view this diagram.</strong></p>
 </noscript>
+
 ```mermaid
 ---
 config:
@@ -233,6 +235,7 @@ Inheritance is described as an **is-a** relationship. A `MerchantShip` **is a** 
 <noscript>
 <p><strong>Note: Enable JavaScript in your browser to view this diagram.</strong></p>
 </noscript>
+
 ```mermaid
 ---
 config:
@@ -380,6 +383,7 @@ Remember that I said that inheritance is called an **is-a** relationship? With c
 <noscript>
 <p><strong>Note: Enable JavaScript in your browser to view this diagram.</strong></p>
 </noscript>
+
 ```mermaid
 ---
 config:
@@ -477,6 +481,7 @@ Problem solved. So composition is much more flexible than inheritance. Every cla
 <noscript>
 <p><strong>Note: Enable JavaScript in your browser to view these diagrams.</strong></p>
 </noscript>
+
 ```mermaid
 ---
 config:
@@ -602,6 +607,7 @@ let loudMerchant = ArmedMerchantShip(
 <noscript>
 <p><strong>Note: Enable JavaScript in your browser to view this diagram.</strong></p>
 </noscript>
+
 ```mermaid
 ---
 config:
@@ -636,6 +642,7 @@ let dangerousHunter = PirateHunterShip(
 <noscript>
 <p><strong>Note: Enable JavaScript in your browser to view this diagram.</strong></p>
 </noscript>
+
 ```mermaid
 ---
 config:
