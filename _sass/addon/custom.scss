@@ -19,3 +19,9 @@ noscript p {
   color: #856404;
   border-radius: 4px;
 }
+
+/* Make table cells word-wrap */
+.table-wrapper>table thead th,
+.table-wrapper>table tbody tr td {
+    white-space: normal
+}
