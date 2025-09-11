@@ -23,5 +23,6 @@ noscript p {
 /* Make table cells word-wrap */
 .table-wrapper>table thead th,
 .table-wrapper>table tbody tr td {
-    white-space: normal
+    white-space: normal;
+    overflow-wrap: break-word; /* Ensures long words break to fit cell */
 }
