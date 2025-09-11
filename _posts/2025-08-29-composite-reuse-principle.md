@@ -131,6 +131,9 @@ class PirateHunterShip: ArmedShip {
 
 This works great so far. We’ve eliminated all duplication. This is what our inheritance hierarchy looks like:
 
+<noscript>
+<p><strong>Note: Enable JavaScript in your browser to view this diagram.</strong></p>
+</noscript>
 ```mermaid
 ---
 config:
@@ -200,6 +203,9 @@ class ArmedMerchantShip: MerchantShip {
 ```
 To eliminate all duplication, we'd have to inherit from both `ArmedShip` and `MerchantShip`, which is not possible (at least in Swift, for good reasons). So, with class inheritance, we're stuck here.
 
+<noscript>
+<p><strong>Note: Enable JavaScript in your browser to view this diagram.</strong></p>
+</noscript>
 ```mermaid
 ---
 config:
@@ -224,6 +230,9 @@ That’s one limitation of inheritance. It’s not that flexible.
 
 Inheritance is described as an **is-a** relationship. A `MerchantShip` **is a** `Ship`. A `PirateShip` **is an** `ArmedShip`. It’s all or nothing. If you decide to inherit from a class, not only do you inherit all properties and behavior of that class, but you **become** a kind of that class. That’s the strongest form of coupling.
 
+<noscript>
+<p><strong>Note: Enable JavaScript in your browser to view this diagram.</strong></p>
+</noscript>
 ```mermaid
 ---
 config:
@@ -368,6 +377,9 @@ class PirateShip {
 
 Remember that I said that inheritance is called an **is-a** relationship? With composition, we have a **has-a** relationship. A `PirateShip` **has a** cannon it can use to shoot. It **has a** boarding crew that can be sent out to plunder.
 
+<noscript>
+<p><strong>Note: Enable JavaScript in your browser to view this diagram.</strong></p>
+</noscript>
 ```mermaid
 ---
 config:
@@ -462,6 +474,9 @@ class ArmedMerchantShip {
 
 Problem solved. So composition is much more flexible than inheritance. Every class can simply pick the functionality it needs.
 
+<noscript>
+<p><strong>Note: Enable JavaScript in your browser to view these diagrams.</strong></p>
+</noscript>
 ```mermaid
 ---
 config:
@@ -584,6 +599,9 @@ let loudMerchant = ArmedMerchantShip(
 )
 ```
 
+<noscript>
+<p><strong>Note: Enable JavaScript in your browser to view this diagram.</strong></p>
+</noscript>
 ```mermaid
 ---
 config:
@@ -615,6 +633,9 @@ let dangerousHunter = PirateHunterShip(
 )
 ```
 
+<noscript>
+<p><strong>Note: Enable JavaScript in your browser to view this diagram.</strong></p>
+</noscript>
 ```mermaid
 ---
 config:
