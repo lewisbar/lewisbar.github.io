@@ -5,7 +5,7 @@ description: "How to access your iOS app icon in code to use it as an image insi
 categories: [Practical Solutions]
 tags: [ios, swiftui, uikit]     # TAG names should always be lowercase
 ---
-If you ever find yourself wanting to use your app icon inside your app - for example, in an About screen or a top bar branding similar to Facebook -, but you don't want to import it into your project as a regular image, because, afterall, it's already there, isn't it? - this is how you can do it:
+If you ever find yourself wanting to use your app icon inside your app - for example, in an About screen or a top bar branding similar to Facebook -, but you don't want to import it into your project as a regular image, because, after all, it's already there, isn't it? - this is how you can do it:
 ```swift
 import SwiftUI  // or UIKit, both work for UIImage
 
