@@ -1,0 +1,9 @@
+version: 1
+build:
+  environment:
+    ruby: 3.3.5
+    bundler: 2.5.11
+  commands:
+    - bundle config set --local path 'vendor/bundle'
+    - bundle install --jobs 4 --retry 3
+    - bundle exec jekyll build
