@@ -84,4 +84,5 @@ If you find a better solution, feel free to contact me, I'd like to know!
 ---
 
 ## Links and References
-I found the solution for restoring the swipe gesture (step 5) here: [Reddit comment by Tabonx](https://www.reddit.com/r/SwiftUI/comments/1g0pmst/comment/mx2sy0s).
+- You can find the code on [GitHub](https://github.com/SwiftForPirates/Custom-Back-Button-Example).
+- I found the solution for restoring the swipe gesture (step 5) here: [Reddit comment by Tabonx](https://www.reddit.com/r/SwiftUI/comments/1g0pmst/comment/mx2sy0s).
