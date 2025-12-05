@@ -10,7 +10,7 @@ If you don't like the default iOS back button prior to iOS 26 (blue with the wor
 This post was written with iOS 18 (and earlier) in mind. iOS 26 has changed the design to icon-only, so you might not need to change it. But if you're supporting older iOS versions, read on. As far as I could see, this method does not break anything for iOS 26.
 
 ## Step 1: Remove the default back button
-Hide the default back button with `.navigationBarBackButtonHidden(true)`.
+Hide the default back button with `.navigationBarBackButtonHidden()`.
 ```swift
 var body: some View {
     PirateView()
