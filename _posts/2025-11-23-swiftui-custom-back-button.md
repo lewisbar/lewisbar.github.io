@@ -12,7 +12,7 @@ Hide the default back button with `.navigationBarBackButtonHidden(true)`.
 ```swift
 var body: some View {
     PirateView()
-        .navigationBarBackButtonHidden(true)
+        .navigationBarBackButtonHidden()
 }
 ```
 
@@ -40,7 +40,7 @@ Now we'll put our button in the toolbar with a `.topBarLeading` placement.
 ```swift
 var body: some View {
     PirateView()
-        .navigationBarBackButtonHidden(true)
+        .navigationBarBackButtonHidden()
         .toolbar {
             ToolbarItem(placement: .topBarLeading, content: chevronOnlyBackButton)
         }
@@ -53,6 +53,8 @@ Great, now we've got a custom back button. But wait, what's that? Swiping from t
 I'm not entirely satisfied with this step, but it's the best way I found. It works, but it relies on the fact that SwiftUI is using UIKit under the hood. Should that change at some point in the future, this solution might break. So be aware of that and keep an eye on it.
 We'll create an extension on `UINavigationController`, which is used under the hood by SwiftUI navigation, taking several measures to ensure everything works nicely together with other gestures.
 ```swift
+import UIKit
+
 extension UINavigationController: @retroactive UIGestureRecognizerDelegate {
     override open func viewDidLoad() {
         super.viewDidLoad()
