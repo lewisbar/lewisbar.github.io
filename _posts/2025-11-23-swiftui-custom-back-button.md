@@ -5,7 +5,9 @@ description: "How to use a custom back button in SwiftUI without losing the back
 categories: [Practical Solutions]
 tags: [ios, swiftui]     # TAG names should always be lowercase
 ---
-If you don't like the default iOS back button (blue with the word “Back”), you can use your own. Here is the best method I found after trying various strategies that didn't work quite right.
+If you don't like the default iOS back button prior to iOS 26 (blue with the word “Back”), you can use your own. Here is the best method I found after trying various strategies that didn't work quite right.
+
+This post was written with iOS 18 (and earlier) in mind. iOS 26 has changed the design to icon-only, so you might not need to change it. But if you're supporting older iOS versions, read on. As far as I could see, this method does not break anything for iOS 26.
 
 ## Step 1: Remove the default back button
 Hide the default back button with `.navigationBarBackButtonHidden(true)`.
