@@ -321,6 +321,10 @@ There's some confusion around the internet about the differences between these t
 
 I'd like to encourage you to play around with this. Change the decoration order, or let the decorator do things before or after forwarding the method call, and try to guess what the output will be. Write your own decorator, for example you could clean the cannon after each shot (`print("Cleaning cannon")`). This will help you understand the concept better.
 
+There is more to be said on this topic. If you’re interested, I’ll put some recommendations below.
+
+Fair winds and goodbye!
+
 ---
 
 ## Links and References
