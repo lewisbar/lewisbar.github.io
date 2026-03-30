@@ -382,7 +382,7 @@ let musket = Musket().trackingShots(with: tracker)
 
 ### Can't We Just Subclass?
 
-You can also use inheritance to add behavior. But inheritance is less flexible (see [Composite Reuse Principle]({% post_url 2025-08-29-composite-reuse-principle %})). Subclassing adds behavior to a whole class while a Decorator adds behavior to a single instance. With Decorators, it's easy to change the order of added behavior or to make one instance behave this way and another instance in another way, even at runtime.
+You can also use inheritance to add behavior. But inheritance is less flexible (see [Composite Reuse Principle]({% post_url 2025-08-29-composite-reuse-principle %})). Subclassing adds behavior to a whole class while a Decorator adds behavior to a single instance. With Decorators, it's easy to change the order of added behavior or to make one instance behave differently from another, even at runtime.
 
 ### Some Caveats
 
