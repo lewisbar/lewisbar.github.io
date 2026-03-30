@@ -128,7 +128,7 @@ Wouldn't it be nice if we could simply attach all extra devices like bells and c
 > This is called the Open-Closed Principle. Software components should be open for extension, but closed for modification.
 {: .prompt-info }
 
-So let's restore the Cannon to its original state and start over.
+So let's restore the `Cannon` to its original state and start over.
 
 ```swift
 class Cannon {
