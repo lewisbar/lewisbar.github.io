@@ -204,7 +204,7 @@ let cannon = ShotCountingDecorator(decoratee: Cannon(), tracker: tracker)
 cannon.shoot("east")
 cannon.shoot("north")
 
-print(tracker.firedShots)  // 2
+print("Fired shots: \(tracker.firedShots)")  // 2
 ```
 
 Here's what it looks like in a sequence diagram (start at the top left and follow the arrows):
@@ -267,7 +267,7 @@ let cannon = BellDecorator(
 cannon.shoot("east")  // "Ding! Shooting cannon to the east. Boom! Dong!
 cannon.shoot("north")  // "Ding! Shooting cannon to the north. Boom! Dong!
 
-print(tracker.firedShots)  // 2
+print("Fired shots: \(tracker.firedShots)")  // 2
 ```
 
 ```mermaid
@@ -324,7 +324,7 @@ let cannon = Cannon()
 cannon.shoot("east")  // "Ding! Ding! Shooting cannon to the east. Boom! Dong! Dong!
 cannon.shoot("north")  // "Ding! Ding! Shooting cannon to the north. Boom! Dong! Dong!
 
-print(tracker.firedShots)  // 2
+print("Fired shots: \(tracker.firedShots)")  // 2
 ```
 
 I find this much more readable. And it's now very easy to add or remove decorations or change the order.
