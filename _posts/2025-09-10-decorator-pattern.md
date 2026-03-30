@@ -15,7 +15,7 @@ The post-mortem meeting in the captain's cabin isn't fun for anyone. This failur
 
 The master gunner quickly invents a mechanical counting device. Let's try to build it in.
 
-## Opening up the Cannon
+## Opening Up the Cannon
 
 The gunner walks over to the cannon with some big heavy tool in his hand. And he **opens up the cannon**. Let's see, what do we have here?
 
