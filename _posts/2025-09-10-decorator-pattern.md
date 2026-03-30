@@ -207,6 +207,24 @@ cannon.shoot("north")
 print(tracker.firedShots)  // 2
 ```
 
+Here's what it looks like in a sequence diagram (start at the top left and follow the arrows):
+
+```mermaid
+sequenceDiagram
+    participant Client
+    participant ShotCountingDecorator
+    participant Cannon
+
+    Client ->>+ ShotCountingDecorator: shoot("east")
+    
+    ShotCountingDecorator ->>+ Cannon: shoot("east")
+    Note over Cannon: print("Shooting cannon to the east. Boom!")
+    Cannon -->>- ShotCountingDecorator: 
+    
+    Note over ShotCountingDecorator: tracker.shotFired()
+    ShotCountingDecorator -->>- Client:
+```
+
 ### Another Decorator
 
 Now the first bell requirement arrives. High bell before the shot, low bell after the shot. Let's create a new Decorator for that.
@@ -252,6 +270,29 @@ cannon.shoot("north")  // "Ding! Shooting cannon to the north. Boom! Dong!
 print(tracker.firedShots)  // 2
 ```
 
+```mermaid
+sequenceDiagram
+    participant Client
+    participant BellDecorator
+    participant ShotCountingDecorator
+    participant Cannon
+
+    Client ->>+ BellDecorator: shoot("east")
+    
+    Note over BellDecorator: highBell.ring()
+    BellDecorator ->>+ ShotCountingDecorator: shoot("east")
+    
+    ShotCountingDecorator ->>+ Cannon: shoot("east")
+    Note over Cannon: print("Shooting cannon to the east. Boom!")
+    Cannon -->>- ShotCountingDecorator: 
+    
+    Note over ShotCountingDecorator: tracker.shotFired()
+    ShotCountingDecorator -->>- BellDecorator: 
+    
+    Note over BellDecorator: lowBell.ring()
+    BellDecorator -->>- Client:
+```
+
 ### Chaining Decorators
 
 We could continue nesting decorators this way. To ring the bells twice, we could have a `BellDecorator` decorating another `BellDecorator` decorating a `ShotCountingDecorator` decorating a `Cannon`. But it's becoming a bit hard to read, so let's improve this with a little protocol extension.
@@ -287,6 +328,38 @@ print(tracker.firedShots)  // 2
 ```
 
 I find this much more readable. And it's now very easy to add or remove decorations or change the order.
+
+Here's the updated sequence diagram:
+
+```mermaid
+sequenceDiagram
+    participant Client
+    participant BellDecorator1
+    participant BellDecorator2
+    participant ShotCountingDecorator
+    participant Cannon
+
+    Client ->>+ BellDecorator1: shoot("east")
+    
+    Note over BellDecorator1: highBell.ring()
+    BellDecorator1 ->>+ BellDecorator2: shoot("east")
+
+    Note over BellDecorator2: highBell.ring()
+    BellDecorator2 ->>+ ShotCountingDecorator: shoot("east")
+    
+    ShotCountingDecorator ->>+ Cannon: shoot("east")
+    Note over Cannon: print("Shooting cannon to the east. Boom!")
+    Cannon -->>- ShotCountingDecorator: 
+    
+    Note over ShotCountingDecorator: tracker.shotFired()
+    ShotCountingDecorator -->>- BellDecorator2: 
+
+    Note over BellDecorator2: lowBell.ring()
+    BellDecorator2 -->>- BellDecorator1: 
+    
+    Note over BellDecorator1: lowBell.ring()
+    BellDecorator1 -->>- Client:
+```
 
 ### Reusing Decorators
 
