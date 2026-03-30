@@ -384,11 +384,11 @@ You can also use inheritance to add behavior. But inheritance is less flexible (
 ### Caveats
 
 - A decorator and its decoratee aren't identical. Just something to keep in mind in case you need to rely on identity.
-- If you create too many little objects, that could potentially also create a mess. "A design that uses Decorator often results in systems composed of lots of little objects that all look alike. The objects differ only in the way they are interconnected, not in their class or in the value of their variables. Although these systems are easy to customize by those who understand them, they can be hard to learn and debug." (Design Patterns, p. 178)
+- If you create too many little objects, that could potentially also create a mess. "A design that uses Decorator often results in systems composed of lots of little objects that all look alike. The objects differ only in the way they are interconnected, not in their class or in the value of their variables. Although these systems are easy to customize by those who understand them, they can be hard to learn and debug."[^1]
 
 ### What's the Difference to the Proxy Pattern?
 
-There's some confusion around the internet about the differences between these two patterns. I'll let the Gang of Four clear that up once and for all: "Although decorators can have similar implementations as proxies, decorators have a different purpose. A decorator adds one or more responsibilities to an object, whereas a proxy controls access to an object." (Design Patterns, p. 216)
+There's some confusion around the internet about the differences between these two patterns. I'll let the Gang of Four clear that up once and for all: "Although decorators can have similar implementations as proxies, decorators have a different purpose. A decorator adds one or more responsibilities to an object, whereas a proxy controls access to an object."[^2]
 
 ### Your Turn
 
@@ -403,4 +403,8 @@ Fair winds and goodbye!
 ## Links and References
 - You can find the code on [GitHub](...).
 - I first learned about this at [essentialdeveloper.com](https://www.essentialdeveloper.com). I can't recommend enough their iOS Lead Essentials program.
-- Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides. [Design Patterns - Elements of Reusable Object-Oriented Software](https://www.goodreads.com/book/show/85009.Design_Patterns). Addison-Wesley. P. 175-184, plus quotes above.
+- Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides. [*Design Patterns - Elements of Reusable Object-Oriented Software*](https://www.goodreads.com/book/show/85009.Design_Patterns) (Addison-Wesley), pp. 175-184: "Decorator".
+
+[^1]: Gamma et al., *Design Patterns*, p. 178.
+
+[^2]: Gamma et al., *Design Patterns*, p. 216.
