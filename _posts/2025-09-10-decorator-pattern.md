@@ -149,7 +149,7 @@ protocol Shootable {
     func shoot(_ direction: String)
 }
 
-extension Cannon: Shootable {}  // Or add the conformance directly to the class, depending on your case
+extension Cannon: Shootable {}  // Or add the conformance directly to the class, depending on your needs: Should `Cannon` know about `Shootable` or should it be decoupled from it?
 ```
 
 ### Creating the Decorator
