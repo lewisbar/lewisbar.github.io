@@ -317,7 +317,7 @@ let highBell = HighBell()
 let lowBell = LowBell()
 
 let cannon = Cannon()
-    .trackingShots(with tracker: tracker)
+    .trackingShots(with: tracker)
     .ringingBells(high: highBell, low: lowBell)
     .ringingBells(high: highBell, low: lowBell)
 
@@ -366,8 +366,8 @@ sequenceDiagram
 Because it's now easy, let's also track pistol and musket shots, assuming these guns also conform to `Shootable`.
 
 ```swift
-let pistol = Pistol().trackingShots(with tracker: tracker)
-let musket = Musket().trackingShots(with tracker: tracker)
+let pistol = Pistol().trackingShots(with: tracker)
+let musket = Musket().trackingShots(with: tracker)
 ```
 
 (Let's not get into different ammunition types here, which should probably be counted separately.)
