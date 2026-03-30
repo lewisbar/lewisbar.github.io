@@ -386,7 +386,7 @@ You can also use inheritance to add behavior. But inheritance is less flexible (
 
 ### Some Caveats
 
-- A decorator and its decoratee aren't identical. Just something to keep in mind in case you need to rely on identity.
+- A decorator and its decoratee aren't identical (===). Just something to keep in mind in case you need to rely on identity.
 - If you create too many little objects, that could potentially also create a mess. "A design that uses Decorator often results in systems composed of lots of little objects that all look alike. The objects differ only in the way they are interconnected, not in their class or in the value of their variables. Although these systems are easy to customize by those who understand them, they can be hard to learn and debug."[^1]
 
 ### What's the Difference to the Proxy Pattern?
