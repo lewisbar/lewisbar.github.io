@@ -406,7 +406,7 @@ Fair winds and goodbye!
 ## Links and References
 - You can find the code on [GitHub](https://github.com/SwiftForPirates/decorator-pattern).
 - I first learned about this at [essentialdeveloper.com](https://www.essentialdeveloper.com). I can't recommend enough their iOS Lead Essentials program.
-- Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides. [*Design Patterns - Elements of Reusable Object-Oriented Software*](https://www.goodreads.com/book/show/85009.Design_Patterns) (Addison-Wesley), pp. 175-184: "Decorator".
+- Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides. [*Design Patterns - Elements of Reusable Object-Oriented Software*](https://www.goodreads.com/book/show/85009.Design_Patterns) (Addison-Wesley, 1995), pp. 175-184: "Decorator".
 
 [^1]: Gamma et al., *Design Patterns*, p. 178.
 
